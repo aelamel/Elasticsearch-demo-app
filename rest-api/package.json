@@ -1,5 +1,5 @@
 {
-  "name": "phone-book",
+  "name": "Elastic rest api test",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
