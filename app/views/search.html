@@ -1,15 +1,16 @@
-<div class="row">    
+<div class="row">
     <div class="col-xs-8 col-xs-offset-2">
+        <label>Type something</la>        
         <div class="input-group">
         <input type="hidden" name="search_param" value="all" id="search_param">         
-        <input type="text" class="form-control" ng-model="searchTerm" ng-change="getSuggestions()" placeholder="Search term...">
+        <input type="text" class="form-control" ng-model="searchTerm" ng-change="getSuggestions()" placeholder="Type a keyword...">
         <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="searchByTerm(0)"><span class="glyphicon glyphicon-search"></span></button>
         </span>
         </div>
         <ul style="list-style: none; padding-left: 0;">
         <li ng-repeat="suggestion in suggestions" style="background-color: #eee;  padding: 5px 0 5px 19px;">
-            <a href="">{{suggestion.client_name + " (" + suggestion.client_country + ")"}}</a>
+            <a href="">{{suggestion.code + " - "  + suggestion.client_name + " (" + suggestion.client_country + ")"}}</a>
         </li>
         </ul>
     </div>           
@@ -41,7 +42,6 @@
     </table>
     <button class="btn btn-primary" ng-if="total > 10 && displayedOrders < total" ng-click="loadMore()">Load more</button>
 </div>
-<div ng-if="orders.length === 0" >
-    <h3 class="alert alert-danger">Nothing found</h3>
-</div>
+    <h3 class="alert alert-danger" ng-show="formSubmitted === true && orders.length === 0">Nothing found</h3>
+
 </div>

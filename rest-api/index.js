@@ -32,9 +32,30 @@ app.get('/', function (req, res) {
 
 app.get('/clients', function (req,res) {
  
-   console.log('CORS-enabled web server listening on port 80')
-
 	connection.query('SELECT * from clients', [], function(err, rows, fields) {
+  		if (!err){
+  			var response = [];
+
+			if (rows.length != 0) {
+				response.push({'result' : 'success', 'data' : rows});
+			} else {
+				response.push({'result' : 'error', 'msg' : 'No Results Found'});
+			}
+
+			res.setHeader('Content-Type', 'application/json');
+	    	res.status(200).send(JSON.stringify(response));
+  		} else {
+		    res.status(400).send(err);
+	  	}
+	});
+});
+
+
+app.get('/orders/:client', function (req,res) {
+ 
+ 	var client = req.params.client;
+ 	console.log(client);
+	connection.query('SELECT * from orders o INNER JOIN clients c ON o.client_id = c.id WHERE c.nom LIKE ? OR c.pays LIKE ? OR o.description LIKE ? OR o.code LIKE ?', ['%'+client+'%', '%'+client+'%', '%'+client+'%', '%'+client+'%' ], function(err, rows, fields) {
   		if (!err){
   			var response = [];
 

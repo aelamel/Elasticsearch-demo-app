@@ -2,10 +2,12 @@ app.controller('SearchCtrl', function ($scope, SearchService) {
 
     $scope.page = 0;
     $scope.orders = [];
+    $scope.formSubmitted = false;    
     $scope.searchByTerm = function (page) {
         $scope.page = page;
         $scope.suggestions = [];
         SearchService.search($scope.searchTerm, $scope.page, $scope.filter).then(function(response) {
+            $scope.formSubmitted = true;
             if ($scope.page === 0) {
                 $scope.orders = [];
             } 
