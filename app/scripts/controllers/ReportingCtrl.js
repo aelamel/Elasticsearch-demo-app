@@ -10,6 +10,7 @@ app.controller('ReportingCtrl', function ($scope, ReportingService, $route, $fil
             field = 'delivery_date';
             break;
     }
+    $scope.formSubmitted = false;
     $scope.page = 0;
     $scope.orders = [];
     $scope.clients = [];
@@ -17,7 +18,6 @@ app.controller('ReportingCtrl', function ($scope, ReportingService, $route, $fil
         displayKey: 'nom'
     };
     ReportingService.clients().then(function(response) {
-        
         // instantiate the bloodhound suggestion engine
         var clientsList = new Bloodhound({
             datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.nom); },
@@ -45,6 +45,7 @@ app.controller('ReportingCtrl', function ($scope, ReportingService, $route, $fil
     $scope.search = function (page) {
         $scope.page = page;
         ReportingService.search($scope.searchTerm.nom, $scope.page, field, $scope.startDate, $scope.endDate).then(function(response) {
+            $scope.formSubmitted = true;
             if ($scope.page === 0) {
                 $scope.orders = [];
             } 
