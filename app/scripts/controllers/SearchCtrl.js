@@ -12,7 +12,6 @@ app.controller('SearchCtrl', function ($scope, SearchService) {
             $scope.displayedOrders = response[0].length + $scope.orders.length;            
             $scope.orders = $scope.orders.concat(response[0]);
             $scope.total = response[1]
-            console.log(response);
         });
     };
 
@@ -29,7 +28,6 @@ app.controller('SearchCtrl', function ($scope, SearchService) {
         SearchService.getSuggestions($scope.searchTerm).then(function(response) {
             $scope.suggestions = response;
             $scope.showDropdown = true;
-            console.log(response);
         });
     }
 

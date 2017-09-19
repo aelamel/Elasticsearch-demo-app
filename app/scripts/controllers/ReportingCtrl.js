@@ -25,7 +25,6 @@ app.controller('ReportingCtrl', function ($scope, ReportingService, $route, $fil
             local: response.data[0].data
         });
 
-        console.log(response.data[0].data);
         $scope.clients = {
             displayKey: 'nom',
             source: clientsList.ttAdapter(),
@@ -45,11 +44,6 @@ app.controller('ReportingCtrl', function ($scope, ReportingService, $route, $fil
 
     $scope.search = function (page) {
         $scope.page = page;
-        console.log($scope.searchTerm);
-        console.log($scope.page);
-        console.log(field);
-        console.log($scope.startDate); 
-        console.log($scope.endDate);
         ReportingService.search($scope.searchTerm.nom, $scope.page, field, $scope.startDate, $scope.endDate).then(function(response) {
             if ($scope.page === 0) {
                 $scope.orders = [];
@@ -57,13 +51,9 @@ app.controller('ReportingCtrl', function ($scope, ReportingService, $route, $fil
             $scope.displayedOrders = response[0].length + $scope.orders.length;            
             $scope.orders = $scope.orders.concat(response[0]);
             $scope.total = response[1];
-            console.log(_.pluck(response[2].orders_over_day.buckets, 'doc_count'));
             $scope.chartConfigYear = $scope.drawChart($filter('capitalize')(type) + " Orders by year", response[2].orders_over_year.buckets);
             $scope.chartConfigMonth = $scope.drawChart($filter('capitalize')(type)  + " Orders by month", response[2].orders_over_month.buckets);
             $scope.chartConfigDay = $scope.drawChart($filter('capitalize')(type) + " Orders by day", response[2].orders_over_day.buckets);
-
-
-            console.log(response);
         });
     };
 
@@ -80,7 +70,6 @@ app.controller('ReportingCtrl', function ($scope, ReportingService, $route, $fil
         SearchService.getSuggestions($scope.searchTerm).then(function(response) {
             $scope.suggestions = response;
             $scope.showDropdown = true;
-            console.log(response);
         });
     }
 
