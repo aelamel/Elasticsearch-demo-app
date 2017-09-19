@@ -1,0 +1,18 @@
+{
+  "name": "twitter-elastic-search",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "v1.2.14",
+    "elasticsearch": "~2.1.0",
+    "angucomplete-alt": "^3.0.0"
+  }
+}

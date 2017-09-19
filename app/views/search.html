@@ -1,0 +1,47 @@
+<div class="row">    
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="input-group">
+        <input type="hidden" name="search_param" value="all" id="search_param">         
+        <input type="text" class="form-control" ng-model="searchTerm" ng-change="getSuggestions()" placeholder="Search term...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="searchByTerm(0)"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+        </div>
+        <ul style="list-style: none; padding-left: 0;">
+        <li ng-repeat="suggestion in suggestions" style="background-color: #eee;  padding: 5px 0 5px 19px;">
+            <a href="">{{suggestion.client_name + " (" + suggestion.client_country + ")"}}</a>
+        </li>
+        </ul>
+    </div>           
+</div>
+
+
+<div  ng-if="orders">
+<h2 class="sub-header" ng-if="orders.length > 0">Search result : {{displayedOrders}} out of {{total}}</h2> 
+<div class="table-responsive" ng-if="orders.length > 0">
+    <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+        <th>Client (country)</th>
+        <th>Order code</th>
+        <th>Description</th>
+        <th>Delivery date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="order in orders">
+        <td>{{order.client_name + " (" + order.client_country + ")"}}</td>
+        <td>{{order.code}}</td>
+        <td>
+            {{order.description}}
+        </td>
+        <td>{{order.delivery_date | date:'dd-MM-yyyy'}}</td>
+        </tr>
+    </tbody>
+    </table>
+    <button class="btn btn-primary" ng-if="total > 10 && displayedOrders < total" ng-click="loadMore()">Load more</button>
+</div>
+<div ng-if="orders.length === 0" >
+    <h3 class="alert alert-danger">Nothing found</h3>
+</div>
+</div>

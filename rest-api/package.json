@@ -1,5 +1,5 @@
 {
-  "name": "Elastic rest api test",
+  "name": "elastic-rest-api",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
