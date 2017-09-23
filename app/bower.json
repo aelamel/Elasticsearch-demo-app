@@ -1,5 +1,5 @@
 {
-  "name": "twitter-elastic-search",
+  "name": "orders-elastic-search",
   "version": "0.0.0",
   "license": "MIT",
   "ignore": [
