@@ -1,0 +1,39 @@
+{
+  "name": "angularjs-autocomplete",
+  "version": "0.4.8",
+  "main": "./build/angularjs-autocomplete.min.js",
+  "homepage": "https://github.com/allenhwkim/angularjs-autocomplete",
+  "authors": [
+    "Allen Kim <allenhwkim@gmail.com>"
+  ],
+  "description": "Single or Multi Autocomplete for INPUT and SELECT tag",
+  "keywords": [
+    "select",
+    "input",
+    "select2",
+    "autocomplete",
+    "remote"
+  ],
+  "ignore": [
+    "directives",
+    "gulpfile.js",
+    "node_modules",
+    "services",
+    "test"
+  ],
+  "devDependencies": {
+    "angular": "~1.3.14",
+    "angular-sanitize": "~1.3.14"
+  },
+  "license": "MIT",
+  "_release": "0.4.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.8",
+    "commit": "9248aa46a2ce4da4074383c8ec0107a5a5c49497"
+  },
+  "_source": "https://github.com/allenhwkim/angularjs-autocomplete.git",
+  "_target": "^0.4.8",
+  "_originalSource": "angularjs-autocomplete",
+  "_direct": true
+}

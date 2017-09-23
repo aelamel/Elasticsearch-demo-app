@@ -1,0 +1,21 @@
+{
+  "name": "orders-elastic-search",
+  "version": "0.0.0",
+  "description": "orders-elastic-search",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "jquery": "^3.1.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "angular-typeahead": "^1.0.2",
+    "angularjs-datepicker": "^2.1.23",
+    "highcharts": "^5.0.9"
+  }
+}

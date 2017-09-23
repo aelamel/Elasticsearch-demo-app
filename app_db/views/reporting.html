@@ -1,0 +1,76 @@
+<form name="searchForm" ng-submit = "search(0)">
+    <div class="row">    
+        <div class="col-xs-4">
+            <label for="">Client name</label> <br>           
+            <input class='form-control' type="text" sf-typeahead options="typeAheadOptions" datasets="clients" ng-model="searchTerm" placeholder="Client name">
+        </div>           
+    </div>
+
+    <div class="row">       
+        <div class="col-xs-4">
+            <label for="">Start date</label>
+            <datepicker date-format="yyyy-MM-dd" selector="form-control">
+                <input type="text" class="form-control" ng-model="startDate" required="required" placeholder="Choose a date" />
+            </datepicker>
+        </div>           
+    </div>
+
+    <div class="row">       
+        <div class="col-xs-4">
+            <label for="">End date</label>
+            <datepicker date-format="yyyy-MM-dd">
+                <input type="text" class="form-control" ng-model="endDate" required="required" placeholder="Choose a date" />
+            </datepicker>
+        </div>           
+    </div>
+
+    <div class="row">
+        <br>     
+        <div class="col-xs-4">
+            <input type="submit" class="btn btn-primary" value="Search"/>
+        </div>           
+    </div>
+</form>
+
+
+<div  ng-if="orders">
+    <h2 class="sub-header" ng-if="orders.length > 0">Search result : {{displayedOrders}} out of {{total}}</h2> 
+    <div class="table-responsive" ng-if="orders.length > 0">
+        <div class="row">
+            <div class="col-xs-4">
+                <highchart id="chart1" config="chartConfigYear" class="span4" ></highchart>
+            </div>
+            <div class="col-xs-4">
+                <highchart id="chart2" config="chartConfigMonth" class="span4" ></highchart>
+            </div>
+
+            <div class="col-xs-4">
+                <highchart id="chart3" config="chartConfigDay" class="span4" ></highchart>
+            </div>
+        </div>
+        
+        <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+            <th>Client (country)</th>
+            <th>Order code</th>
+            <th>Description</th>
+            <th>Delivery date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in orders">
+            <td>{{order.client_name + " (" + order.client_country + ")"}}</td>
+            <td>{{order.code}}</td>
+            <td>
+                {{order.description}}
+            </td>
+            <td>{{order.delivery_date | date:'dd-MM-yyyy'}}</td>
+            </tr>
+        </tbody>
+        </table>
+        <button class="btn btn-primary" ng-if="total > 10 && displayedOrders < total" ng-click="loadMore()">Load more</button>
+    </div>
+
+    <h3 class="alert alert-danger" ng-show="formSubmitted === true && orders.length === 0">Nothing found</h3>
+</div>

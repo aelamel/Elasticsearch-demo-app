@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+
+    <title>Order Tracking App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="https://getbootstrap.com/docs/3.3/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/3.3/examples/dashboard/dashboard.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="node_modules/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet"> 
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body ng-app='mySearchEngineApp'>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#!/">Order Tracking Search Engine</a>
+        </div>        
+      </div>
+    </nav>
+
+    <div class="container-fluid" >
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar ">
+            <li class="active"><a href="#">Facets</a></li>
+            <li data-toggle="collapse" data-target="#ranges" class="collapsed" aria-expanded="false">
+              <a style="cursor: pointer;">Reporting</a><span class="arrow"></span>
+            </li>
+            <ul class="sub-menu collapse" id="ranges">
+                <li><a href="#!/reporting/created">Orders created</a></li>
+                <li><a href="#!/reporting/delivered">Orders delivered</a></li>
+              </ul>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
+      </div>
+
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="http://code.highcharts.com/highcharts.src.js"></script>
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/elasticsearch/elasticsearch.angular.js" type="text/javascript"></script>
+    <script src="node_modules/angularjs-datepicker/src/js/angular-datepicker.js"></script> 
+    <script src="bower_components/typeahead.js/dist/bloodhound.min.js"></script>
+    <script src="bower_components/typeahead.js/dist/typeahead.jquery.min.js"></script>
+    <script src="node_modules/angular-typeahead/dist/angular-typeahead.min.js"></script>
+    <script src="scripts/js/underscore.min.js" type="text/javascript"></script>
+
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/controllers/MainCtrl.js" type="text/javascript"></script>
+    <script src="scripts/controllers/SearchCtrl.js" type="text/javascript"></script>
+    <script src="scripts/controllers/ReportingCtrl.js" type="text/javascript"></script>
+    <script src="scripts/services/SearchService.js" type="text/javascript"></script>
+    <script src="scripts/services/ReportingService.js" type="text/javascript"></script>
+    <script src="scripts/factories/SearchFactory.js"></script>
+    <script src="scripts/filters/CapitalizeFilter.js" type="text/javascript"></script>
+    <script src="scripts/js/highcharts-ng.js"></script>
+
+  </body>
+</html>
