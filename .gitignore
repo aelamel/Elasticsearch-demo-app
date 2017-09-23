@@ -1,5 +1,5 @@
 app/node_modules/*
-app/bower_componenets/*
+app/bower_components/*
 app_db/node_modules/*
-app_db/bower_componenets/*
-rest_api/node_modules/*
+app_db/bower_components/*
+rest-api/node_modules/*

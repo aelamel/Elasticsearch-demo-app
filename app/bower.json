@@ -13,6 +13,10 @@
     "angular": "^1.5.7",
     "angular-route": "v1.2.14",
     "elasticsearch": "~2.1.0",
-    "angucomplete-alt": "^3.0.0"
+    "angucomplete-alt": "^3.0.0",
+    "typeahead.js": "^0.11.1"
+  },
+  "resolutions": {
+    "angular": ">=1.6.0"
   }
 }
