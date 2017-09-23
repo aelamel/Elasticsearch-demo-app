@@ -8,7 +8,7 @@ var http     = require('http'),
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'root',
   database : 'company'
 });
 try {
@@ -89,28 +89,11 @@ app.get('/search/orders/:keyword/:page', function (req,res) {
 		    res.status(400).send(err);
 	  	}
  	});
-	// connection.query('SELECT * from orders o INNER JOIN clients c ON o.client_id = c.id WHERE c.nom LIKE ? OR c.pays LIKE ? OR o.description LIKE ? OR o.code LIKE ? LIMIT ?, ?', ['%'+keyword+'%', '%'+keyword+'%', '%'+keyword+'%', '%'+keyword+'%', offset, pageSize ], function(err, rows, fields) {
- //  		if (!err){
- //  			var response = [];
-
-	// 		if (rows.length != 0) {
-	// 			response.push({'result' : 'success', 'data' : rows});
-	// 		} else {
-	// 			response.push({'result' : 'error', 'msg' : 'No Results Found'});
-	// 		}
-
-	// 		res.setHeader('Content-Type', 'application/json');
-	//     	res.status(200).send(JSON.stringify(response));
- //  		} else {
-	// 	    res.status(400).send(err);
-	//   	}
-	// });
 });
 
 app.get('/orders/suggestions/:keyword', function (req,res) {
  
  	var keyword = req.params.keyword;
- 	console.log(keyword);
 	connection.query('SELECT c.nom client_name, c.pays client_country, o.code from orders o INNER JOIN clients c ON o.client_id = c.id WHERE c.nom LIKE ? OR c.pays LIKE ? OR o.description LIKE ? OR o.code LIKE ? LIMIT ?', [keyword+'%', keyword+'%', keyword+'%', keyword+'%', pageSize ], function(err, rows, fields) {
   		if (!err){
   			var response = [];
